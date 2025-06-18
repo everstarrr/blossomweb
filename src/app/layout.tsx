@@ -1,16 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from 'next/font/local'
 import "./globals.css";
+import { Header } from "@/components/shared/Header";
+import { Footer } from "@/components/shared/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const Cedra4F = localFont({
+  src: [
+    {
+      path:"../../public/fonts/Cedra4F-Regular.woff2",
+      weight: "400"
+    },
+    {
+      path:"../../public/fonts/Cedra4F-Light.woff2",
+      weight: "300"
+    },
+    {
+      path:"../../public/fonts/Cedra4F-UltraLight.woff2",
+      weight: "200"
+    },
+    {
+      path:"../../public/fonts/Cedra4F-Thin.woff2",
+      weight: "100"
+    },
+  ]
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +38,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${Cedra4F.className} antialiased`}
       >
+        <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );
