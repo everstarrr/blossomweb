@@ -17,6 +17,7 @@ export const SignupDialog = ({ children, login }: SignupDialogProps) => {
   const { step, setLogin, reset } = useSignupDialog();
 
   const getScreen = () => {
+    console.log(step);
     switch (step) {
       case 1:
         return <ChooseRole />;
@@ -32,7 +33,7 @@ export const SignupDialog = ({ children, login }: SignupDialogProps) => {
   };
 
   return (
-    <Dialog onOpenChange={(open) => open && reset()}>
+    <Dialog onOpenChange={(open) => !open && setTimeout(() => reset(), 200)}>
       <DialogTrigger onClick={login ? () => setLogin() : undefined} asChild>
         {children}
       </DialogTrigger>

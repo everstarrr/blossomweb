@@ -25,13 +25,17 @@ export const Registration = () => {
           <Label className="font-light" htmlFor="name">
             Имя
           </Label>
-          <Input id="name" placeholder="Имя" />
+          <Input id="name" placeholder="Имя" className="bg-almost-black" />
         </div>
         <div className="flex flex-col gap-3 flex-1">
           <Label className="font-light" htmlFor="surname">
             Фамилия
           </Label>
-          <Input id="surname" placeholder="Фамилия" />
+          <Input
+            id="surname"
+            placeholder="Фамилия"
+            className="bg-almost-black"
+          />
         </div>
       </div>
       <div className="flex gap-5">
@@ -39,13 +43,21 @@ export const Registration = () => {
           <Label className="font-light" htmlFor="phone">
             Телефон
           </Label>
-          <Input id="phone" placeholder="+79052728666" />
+          <Input
+            id="phone"
+            placeholder="+79052728666"
+            className="bg-almost-black"
+          />
         </div>
         <div className="flex flex-col gap-3 flex-1">
           <Label className="font-light" htmlFor="email">
             E-mail
           </Label>
-          <Input id="email" placeholder="bigboss2004@mail.ru" />
+          <Input
+            id="email"
+            placeholder="bigboss2004@mail.ru"
+            className="bg-almost-black"
+          />
         </div>
       </div>
       <div className="flex gap-5">
@@ -53,7 +65,12 @@ export const Registration = () => {
           <Label className="font-light" htmlFor="password">
             Пароль
           </Label>
-          <Input type="password" id="password" placeholder="+79052728666" />
+          <Input
+            type="password"
+            id="password"
+            placeholder="+79052728666"
+            className="bg-almost-black"
+          />
         </div>
         <div className="flex flex-col gap-3 flex-1">
           <Label className="font-light" htmlFor="confirmPassword">
@@ -63,6 +80,7 @@ export const Registration = () => {
             type="password"
             id="confirmPassword"
             placeholder="bigboss2004@mail.ru"
+            className="bg-almost-black"
           />
         </div>
       </div>

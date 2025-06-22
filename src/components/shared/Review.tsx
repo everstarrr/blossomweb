@@ -1,21 +1,22 @@
+import { Cedra4F } from "@/app/layout";
 import Image from "next/image";
 
 export const Review = () => {
   return (
-    <div className="flex flex-col rounded-[30px] max-w-[calc(100vw_-_120px)] overflow-hidden">
+    <div className="flex flex-col xl:rounded-[30px] rounded-lg max-w-[calc(100vw_-_120px)] overflow-hidden">
       <Image
         src="/portfolio.png"
         alt="Portfolio"
         width={1230}
         height={231}
-        className="h-[231px] w-full"
+        className="xl:h-[231px] h-[58px] w-full"
       />
-      <div className="flex flex-col pt-[56px] pb-[30px] px-[30px] bg-background-3 text-4xl">
-        <div className="flex gap-[45px] items-center">
-          <Image src="/polina.png" alt="Polina" width={126} height={126}/>
-          <div className="flex flex-col gap-[15px]">
-            <p className="text-4xl">МОСКВИТИНА ПОЛИНА</p>
-            <p className="text-4xl font-thin">Студент 3го курса</p>
+      <div className="flex flex-col xl:gap-0 gap-3.5 xl:pt-[56px] p-2 pt-3.5 xl:pb-[30px] xl:px-[30px] bg-background-3 xl:text-4xl text-xs">
+        <div className="flex xl:gap-[45px] gap-3 items-center">
+          <Image src="/polina.png" alt="Polina" width={126} height={126} className="xl:w-32 xl:h-32 w-8 h-8"/>
+          <div className="flex flex-col xl:gap-[15px] gap-1">
+            <p className={`xl:text-4xl text-[9px] xl:${Cedra4F.className} font-defectica`}>МОСКВИТИНА ПОЛИНА</p>
+            <p className="xl:text-4xl text-[9px] font-thin">Студент 3го курса</p>
           </div>
         </div>
         Отличный курс и бесценной информацией и опытом, который будет не только

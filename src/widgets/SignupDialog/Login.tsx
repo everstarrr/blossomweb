@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
+  DialogClose,
   DialogDescription,
   DialogFooter,
   DialogHeader,
@@ -24,13 +25,22 @@ export const Login = () => {
         <Label className="font-light" htmlFor="email">
           E-mail
         </Label>
-        <Input className="bg-background-3" id="email" placeholder="bigboss2004@mail.ru" />
+        <Input
+          className="bg-background-3"
+          id="email"
+          placeholder="bigboss2004@mail.ru"
+        />
       </div>
       <div className="flex flex-col gap-3">
         <Label className="font-light" htmlFor="password">
           Пароль
         </Label>
-        <Input className="bg-background-3" type="password" id="password" placeholder="+79052728666" />
+        <Input
+          className="bg-background-3"
+          type="password"
+          id="password"
+          placeholder="+79052728666"
+        />
       </div>
       <div className="flex justify-between">
         <div className="py-1 flex gap-[5px] items-center">
@@ -39,11 +49,15 @@ export const Login = () => {
             Запомнить меня
           </Label>
         </div>
-        <span className="bg-gradient-to-r from-accent-blue to-accent-magenta clip-bg-text">
+        <p className="bg-gradient-to-r cursor-pointer from-accent-blue to-accent-magenta clip-bg-text">
           Забыли пароль?
-        </span>
+        </p>
       </div>
-      <Button className="w-[204px] mx-auto" onClick={next}>Продолжить</Button>
+      <DialogClose asChild>
+        <Button className="w-[204px] mx-auto" onClick={next}>
+          Продолжить
+        </Button>
+      </DialogClose>
       <DialogFooter className="inline-flex gap-1.5 font-light w-full justify-center">
         Уже есть аккаунт?
         <span className="bg-gradient-to-r from-accent-blue to-accent-magenta clip-bg-text cursor-pointer">

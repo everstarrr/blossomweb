@@ -2,16 +2,16 @@ import { Card } from "@/components/ui/card";
 import { DeadlineCard } from "@/components/ui/deadline-card";
 import {
   deadlinesData,
-  homeworksData,
-  materialsData,
+  studentsHomeworksData,
+  studentsMaterialsData,
 } from "@/data/studentsData";
 import Image from "next/image";
 
 export default function Students() {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col xl:mt-[92px] mt-[64px]">
       <section
-        className="mt-[92px] h-[287px] relative overflow-hidden px-[60px] py-[62px]"
+        className="h-[287px] relative overflow-hidden xl:px-[60px] px-3 xl:py-[62px] py-12"
         id="hero"
       >
         <Image
@@ -19,47 +19,66 @@ export default function Students() {
           alt="Stone"
           width={1490}
           height={1490}
-          className="absolute right-0 top-0 z-10 h-full w-auto"
+          className="absolute right-0 top-0 z-10 h-full w-auto xl:block hidden"
+        />
+        <Image
+          src="/shape2.png"
+          alt="Stone"
+          width={1490}
+          height={1490}
+          className="absolute right-0 top-0 z-10 h-full w-auto xl:hidden"
         />
         <div className="absolute bg-linear-to-r from-black/0 to-[#944BEC] inset-0 h-full w-full opacity-20" />
         <div className="flex flex-col gap-5 max-w-[702px]">
-          <h3 className="font-defectica text-5xl">НАЧНИ ИЗУЧЕНИЕ СЕЙЧАС!</h3>
-          <p className="font-light text-2xl leading-[30px]">
+          <h3 className="font-defectica xl:text-5xl text-4xl">
+            НАЧНИ ИЗУЧЕНИЕ СЕЙЧАС!
+          </h3>
+          <p className="font-light xl:text-2xl text-lg xl:leading-[30px]">
             Во вкладке “Ученикам” ты найдешь необходимые тебе материалы для
             изучения, а также описание лабораторных работ и домашних заданий
           </p>
         </div>
       </section>
-      <h1 className="mt-[60px] text-8xl text-center font-defectica">
+      <h1 className="mt-[60px] xl:text-8xl text-5xl text-center font-defectica">
         УЧЕНИКАМ
       </h1>
-      <section className="px-[60px] mt-[120px] flex flex-col gap-5">
-        <h2 className="font-defectica text-[64px] h-[45px] leading-[45px]">МАТЕРИАЛЫ</h2>
-        <div className="grid grid-cols-3 gap-5">
-          {materialsData.map((item, index) => (
+      <section className="xl:px-[60px] px-3 xl:mt-[120px] mt-6 flex flex-col gap-5">
+        <h2 className="font-defectica xl:text-[64px] xl:h-[45px] xl:leading-[45px] text-3xl">
+          МАТЕРИАЛЫ
+        </h2>
+        <div className="grid xl:grid-cols-3 grid-cols-1 xl:gap-5 gap-1">
+          {studentsMaterialsData.map((item, index) => (
             <Card
+              titleClassName="text-base"
+              descrClassName="text-xs"
               key={index}
               title={item.title}
               description={item.description}
+              href={item.href}
             />
           ))}
         </div>
       </section>
-      <section className="px-[60px] mt-[96px] flex flex-col gap-5">
-        <h2 className="font-defectica text-[64px] h-[45px] leading-[45px]">ДОМАШНИЕ РАБОТЫ И ЛАБЫ</h2>
-        <div className="grid grid-cols-3 gap-5">
-          {homeworksData.map((item, index) => (
+      <section className="xl:px-[60px] px-3 xl:mt-24 mt-12 flex flex-col gap-5">
+        <h2 className="font-defectica xl:text-[64px] xl:h-[45px] xl:leading-[45px] text-3xl">
+          ДОМАШНИЕ РАБОТЫ И ЛАБЫ
+        </h2>
+        <div className="grid xl:grid-cols-3 grid-cols-1 xl:gap-5 gap-1">
+          {studentsHomeworksData.map((item, index) => (
             <Card
               key={index}
               title={item.title}
               description={item.description}
+              href={item.href}
             />
           ))}
         </div>
       </section>
-      <section className="px-[60px] mt-[96px] flex flex-col gap-5">
-        <h2 className="font-defectica text-[64px] h-[45px] leading-[45px]">ДЕДЛАЙНЫ</h2>
-        <div className="grid grid-cols-3 gap-5">
+      <section className="xl:px-[60px] px-3 xl:mt-24 mt-12 flex flex-col gap-5">
+        <h2 className="font-defectica xl:text-[64px] xl:h-[45px] xl:leading-[45px] text-3xl">
+          ДЕДЛАЙНЫ
+        </h2>
+        <div className="grid xl:grid-cols-3 grid-cols-1 gap-5">
           {deadlinesData.map((item, index) => (
             <DeadlineCard
               key={index}
