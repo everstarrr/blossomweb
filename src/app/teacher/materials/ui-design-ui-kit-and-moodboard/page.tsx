@@ -2,7 +2,6 @@
 
 import { ArticleBlock } from "@/components/shared/ArticleBlock";
 import { ArticleListBlock } from "@/components/shared/ArticleListBlock";
-import { Button } from "@/components/ui/button";
 import {
   baseElementsData,
   howToUseUiKitData,
