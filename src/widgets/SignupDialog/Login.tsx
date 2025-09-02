@@ -11,9 +11,31 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useSignupDialog } from "@/context/signup-dialog-context";
+import { signIn } from "next-auth/react";
+import { useState } from "react";
 
 export const Login = () => {
   const { next } = useSignupDialog();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const submit = async () => {
+    setError(null);
+    setLoading(true);
+    const res = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    setLoading(false);
+    if (res?.error) {
+      setError("Неверный email или пароль");
+      return;
+    }
+    next();
+  };
 
   return (
     <>
@@ -25,22 +47,13 @@ export const Login = () => {
         <Label className="font-light" htmlFor="email">
           E-mail
         </Label>
-        <Input
-          className="bg-background-3"
-          id="email"
-          placeholder="bigboss2004@mail.ru"
-        />
+        <Input className="bg-background-3" id="email" placeholder="bigboss2004@mail.ru" value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div className="flex flex-col gap-3">
         <Label className="font-light" htmlFor="password">
           Пароль
         </Label>
-        <Input
-          className="bg-background-3"
-          type="password"
-          id="password"
-          placeholder="+79052728666"
-        />
+        <Input className="bg-background-3" type="password" id="password" placeholder="Пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
       <div className="flex justify-between">
         <div className="py-1 flex gap-[5px] items-center">
@@ -53,8 +66,9 @@ export const Login = () => {
           Забыли пароль?
         </p>
       </div>
+      {error && <p className="text-red-500 text-sm">{error}</p>}
       <DialogClose asChild>
-        <Button className="w-[204px] mx-auto" onClick={next}>
+        <Button disabled={loading} className="w-[204px] mx-auto" onClick={submit}>
           Продолжить
         </Button>
       </DialogClose>

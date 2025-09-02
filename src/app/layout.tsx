@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import "./globals.css";
 import { Header } from "@/components/shared/Header";
 import { Footer } from "@/components/shared/Footer";
+import { Providers } from "./providers";
 
 export const Cedra4F = localFont({
   src: [
@@ -40,9 +41,11 @@ export default function RootLayout({
       <body
         className={`${Cedra4F.className} antialiased`}
       >
-        <Header/>
-        {children}
-        <Footer/>
+        <Providers>
+          <Header/>
+            {children}
+          <Footer/>
+        </Providers>
       </body>
     </html>
   );
