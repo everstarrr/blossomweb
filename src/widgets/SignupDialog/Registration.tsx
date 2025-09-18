@@ -53,7 +53,7 @@ export const Registration = () => {
         redirect: false,
       });
       next();
-    } catch (e) {
+    } catch {
       setError("Ошибка регистрации");
     } finally {
       setLoading(false);
