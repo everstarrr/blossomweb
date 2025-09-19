@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import Link from "next/link";
+import { SignupDialog } from "./SignupDialog/SignupDialog";
+import { SignupDialogProvider } from "@/context/signup-dialog-context";
 
 interface MenuDialogProps {
   className?: string;
@@ -31,12 +33,17 @@ export const MenuDialog = ({ className }: MenuDialogProps) => {
         </DropdownMenuGroup>
         <DropdownMenuLabel>Авторизация</DropdownMenuLabel>
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <Link href="/login">Вход</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link href="/register">Регистрация</Link>
-          </DropdownMenuItem>
+          <SignupDialog login>
+            <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+              Вход
+            </DropdownMenuItem>
+          </SignupDialog>
+
+          <SignupDialog>
+            <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+              Регистрация
+            </DropdownMenuItem>
+          </SignupDialog>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

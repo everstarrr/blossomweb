@@ -32,7 +32,6 @@ export const Header = () => {
           </div>
         </div>
       ) : (
-        <SignupDialogProvider>
           <div className="xl:flex hidden gap-[15px]">
             <SignupDialog login>
               <button className="p-[15px]">Вход</button>
@@ -46,7 +45,6 @@ export const Header = () => {
               </button>
             </SignupDialog>
           </div>
-        </SignupDialogProvider>
       )}
       <MenuDialog className="xl:hidden"/>
     </header>
